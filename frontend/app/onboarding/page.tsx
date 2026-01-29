@@ -46,6 +46,7 @@ export default function OnboardingPage() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
+      console.log(formData);
       const user = await userAPI.create(formData);
       storage.setUserId(user.id);
       router.push('/results');

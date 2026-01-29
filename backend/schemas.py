@@ -8,6 +8,7 @@ class UserCreate(BaseModel):
     location: str
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+    work_location: Optional[str] = None
     industry: Optional[str] = None
     occupation: Optional[str] = None
     skills: Optional[List[str]] = []
@@ -22,6 +23,7 @@ class UserPreferencesUpdate(BaseModel):
     location: Optional[str] = None
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+    work_location: Optional[str] = None
     industry: Optional[str] = None
     occupation: Optional[str] = None
     skills: Optional[List[str]] = None
@@ -39,6 +41,7 @@ class UserResponse(BaseModel):
     location: str
     latitude: Optional[float]
     longitude: Optional[float]
+    work_location: Optional[str]
     industry: Optional[str]
     occupation: Optional[str]
     skills: Optional[List[str]]
@@ -77,11 +80,13 @@ class JobListingResponse(BaseModel):
     required_skills: Optional[List[str]]
     education_required: Optional[str]
     experience_required: Optional[str]
-    aoi_score: Optional[float]
-    aoi_access_score: Optional[float]
-    aoi_wage_score: Optional[float]
-    aoi_mobility_score: Optional[float]
-    aoi_job_quality_score: Optional[float]
+    aoi_overall_badge: Optional[str]
+    aoi_badge_early_career: Optional[str]
+    aoi_badge_growth: Optional[str]
+    aoi_badge_stability: Optional[str]
+    aoi_interal_promption_rate: Optional[float]
+    aoi_external_promotion_rate: Optional[float]
+    aoi_retention_rate_3yr: Optional[float]
     remote_work: bool
     posted_date: Optional[datetime]
     expires_date: Optional[datetime]

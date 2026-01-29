@@ -17,17 +17,17 @@ def init_database():
 def seed_sample_data():
     """Seed database with sample job listings"""
     print("Seeding sample data...")
-    
+
     SessionLocal = sessionmaker(bind=engine)
     db = SessionLocal()
-    
+
     # Check if data already exists
     existing = db.query(JobListing).first()
     if existing:
         print("Sample data already exists. Skipping...")
         db.close()
         return
-    
+
     # Sample job listings
     sample_jobs = [
         JobListing(
@@ -50,14 +50,16 @@ def seed_sample_data():
             required_skills=["Python", "JavaScript", "React", "SQL"],
             education_required="Bachelor's degree",
             experience_required="3+ years",
-            aoi_score=4.2,
-            aoi_access_score=4.0,
-            aoi_wage_score=4.5,
-            aoi_mobility_score=4.3,
-            aoi_job_quality_score=4.1,
+            aoi_overall_badge="Gold",
+            aoi_badge_early_career="NA",
+            aoi_badge_growth="NA",
+            aoi_badge_stability="Platinum",
+            aoi_interal_promption_rate=0.154018,
+            aoi_external_promotion_rate=0.072634,
+            aoi_retention_rate_3yr=0.859432,
             remote_work=True,
             posted_date=datetime.utcnow() - timedelta(days=5),
-            url="https://example.com/job/1"
+            url="https://example.com/job/1",
         ),
         JobListing(
             nlx_id="NLX002",
@@ -79,14 +81,16 @@ def seed_sample_data():
             required_skills=["SQL", "Python", "Tableau", "Excel"],
             education_required="Bachelor's degree",
             experience_required="2+ years",
-            aoi_score=3.8,
-            aoi_access_score=3.5,
-            aoi_wage_score=4.0,
-            aoi_mobility_score=3.9,
-            aoi_job_quality_score=3.8,
+            aoi_overall_badge="Gold",
+            aoi_badge_early_career="NA",
+            aoi_badge_growth="NA",
+            aoi_badge_stability="Platinum",
+            aoi_interal_promption_rate=0.154018,
+            aoi_external_promotion_rate=0.072634,
+            aoi_retention_rate_3yr=0.859432,
             remote_work=False,
             posted_date=datetime.utcnow() - timedelta(days=3),
-            url="https://example.com/job/2"
+            url="https://example.com/job/2",
         ),
         JobListing(
             nlx_id="NLX003",
@@ -108,14 +112,16 @@ def seed_sample_data():
             required_skills=["Figma", "Sketch", "User Research", "Prototyping"],
             education_required="Bachelor's degree",
             experience_required="3+ years",
-            aoi_score=4.0,
-            aoi_access_score=3.8,
-            aoi_wage_score=4.1,
-            aoi_mobility_score=4.2,
-            aoi_job_quality_score=4.0,
+            aoi_overall_badge="Gold",
+            aoi_badge_early_career="NA",
+            aoi_badge_growth="NA",
+            aoi_badge_stability="Platinum",
+            aoi_interal_promption_rate=0.154018,
+            aoi_external_promotion_rate=0.072634,
+            aoi_retention_rate_3yr=0.859432,
             remote_work=True,
             posted_date=datetime.utcnow() - timedelta(days=7),
-            url="https://example.com/job/3"
+            url="https://example.com/job/3",
         ),
         JobListing(
             nlx_id="NLX004",
@@ -137,14 +143,16 @@ def seed_sample_data():
             required_skills=["SEO", "Content Marketing", "Analytics", "Social Media"],
             education_required="Bachelor's degree",
             experience_required="5+ years",
-            aoi_score=3.9,
-            aoi_access_score=3.7,
-            aoi_wage_score=4.0,
-            aoi_mobility_score=4.0,
-            aoi_job_quality_score=3.9,
+            aoi_overall_badge="Gold",
+            aoi_badge_early_career="NA",
+            aoi_badge_growth="NA",
+            aoi_badge_stability="Platinum",
+            aoi_interal_promption_rate=0.154018,
+            aoi_external_promotion_rate=0.072634,
+            aoi_retention_rate_3yr=0.859432,
             remote_work=True,
             posted_date=datetime.utcnow() - timedelta(days=2),
-            url="https://example.com/job/4"
+            url="https://example.com/job/4",
         ),
         JobListing(
             nlx_id="NLX005",
@@ -166,21 +174,23 @@ def seed_sample_data():
             required_skills=["Communication", "CRM", "Problem Solving", "SaaS"],
             education_required="Bachelor's degree",
             experience_required="2+ years",
-            aoi_score=3.6,
-            aoi_access_score=3.5,
-            aoi_wage_score=3.7,
-            aoi_mobility_score=3.6,
-            aoi_job_quality_score=3.6,
+            aoi_overall_badge="Gold",
+            aoi_badge_early_career="NA",
+            aoi_badge_growth="NA",
+            aoi_badge_stability="Platinum",
+            aoi_interal_promption_rate=0.154018,
+            aoi_external_promotion_rate=0.072634,
+            aoi_retention_rate_3yr=0.859432,
             remote_work=True,
             posted_date=datetime.utcnow() - timedelta(days=4),
-            url="https://example.com/job/5"
-        )
+            url="https://example.com/job/5",
+        ),
     ]
-    
+
     # Add to database
     for job in sample_jobs:
         db.add(job)
-    
+
     db.commit()
     print(f"Added {len(sample_jobs)} sample job listings!")
     db.close()
