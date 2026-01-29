@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { userAPI } from '@/lib/api';
-import { storage } from '@/lib/storage';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { userAPI } from "@/lib/api";
+import { storage } from "@/lib/storage";
 
 export default function OnboardingPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  
+
   const [formData, setFormData] = useState({
-    location: '',
+    location: "",
     latitude: undefined as number | undefined,
     longitude: undefined as number | undefined,
-    industry: '',
-    occupation: '',
+    industry: "",
+    occupation: "",
     skills: [] as string[],
     location_importance: 3,
     industry_importance: 3,
@@ -23,8 +23,8 @@ export default function OnboardingPage() {
     growth_importance: 3,
     flexibility_importance: 3,
   });
-  
-  const [skillInput, setSkillInput] = useState('');
+
+  const [skillInput, setSkillInput] = useState("");
 
   const handleAddSkill = () => {
     if (skillInput.trim() && !formData.skills.includes(skillInput.trim())) {
@@ -32,7 +32,7 @@ export default function OnboardingPage() {
         ...formData,
         skills: [...formData.skills, skillInput.trim()],
       });
-      setSkillInput('');
+      setSkillInput("");
     }
   };
 
@@ -46,13 +46,12 @@ export default function OnboardingPage() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      console.log(formData);
       const user = await userAPI.create(formData);
       storage.setUserId(user.id);
-      router.push('/results');
+      router.push("/results");
     } catch (error) {
-      console.error('Error creating user:', error);
-      alert('Failed to save preferences. Please try again.');
+      console.error("Error creating user:", error);
+      alert("Failed to save preferences. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -62,15 +61,21 @@ export default function OnboardingPage() {
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Header */}
       <div className="bg-blue-600 text-white py-6 px-6 shadow-lg">
-        <h1 className="text-2xl font-bold">Job Explorer</h1>
-        <p className="text-blue-100 text-sm mt-1">Find your perfect career match</p>
+        <h1 className="text-2xl font-bold">The Job You Want</h1>
+        <p className="text-blue-100 text-sm mt-1">
+          Find the job that kicks off your future
+        </p>
       </div>
 
       {/* Progress Bar */}
       <div className="bg-white px-6 py-4 shadow-sm">
         <div className="flex justify-between mb-2">
-          <span className="text-sm font-medium text-gray-700">Step {step} of 2</span>
-          <span className="text-sm text-gray-500">{step === 1 ? 'Your Info' : 'Your Priorities'}</span>
+          <span className="text-sm font-medium text-gray-700">
+            Step {step} of 2
+          </span>
+          <span className="text-sm text-gray-500">
+            {step === 1 ? "Your Info" : "Your Priorities"}
+          </span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
@@ -81,24 +86,30 @@ export default function OnboardingPage() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 px-6 py-6 overflow-y-auto">
+      <div className="flex-1 px-6 py-6 overflow-y-auto text-black">
         {step === 1 && (
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Tell us about yourself</h2>
-              <p className="text-gray-600 text-sm">Help us find the best jobs for you</p>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">
+                Tell us about yourself
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Help us find the best jobs for you
+              </p>
             </div>
 
             {/* Location */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Location
+                Location (including Remote or Hybrid)
               </label>
               <input
                 type="text"
                 placeholder="e.g., San Francisco, CA"
                 value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, location: e.target.value })
+                }
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -110,7 +121,9 @@ export default function OnboardingPage() {
               </label>
               <select
                 value={formData.industry}
-                onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, industry: e.target.value })
+                }
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Select an industry</option>
@@ -134,7 +147,9 @@ export default function OnboardingPage() {
                 type="text"
                 placeholder="e.g., Software Engineer, Data Analyst"
                 value={formData.occupation}
-                onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, occupation: e.target.value })
+                }
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -150,7 +165,7 @@ export default function OnboardingPage() {
                   placeholder="Add a skill"
                   value={skillInput}
                   onChange={(e) => setSkillInput(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
+                  onKeyPress={(e) => e.key === "Enter" && handleAddSkill()}
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <button
@@ -183,18 +198,34 @@ export default function OnboardingPage() {
         {step === 2 && (
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">What matters most to you?</h2>
-              <p className="text-gray-600 text-sm">Rate how important each factor is (1-5)</p>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">
+                What matters most to you?
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Rate how important each factor is (1-5)
+              </p>
             </div>
 
             {/* Importance Sliders */}
             <div className="space-y-6">
               {[
-                { key: 'location_importance', label: 'Location', icon: '📍' },
-                { key: 'industry_importance', label: 'Industry/Field', icon: '🏢' },
-                { key: 'salary_importance', label: 'Salary', icon: '💰' },
-                { key: 'growth_importance', label: 'Career Growth', icon: '📈' },
-                { key: 'flexibility_importance', label: 'Work Flexibility', icon: '🏠' },
+                { key: "location_importance", label: "Location", icon: "📍" },
+                {
+                  key: "industry_importance",
+                  label: "Industry",
+                  icon: "🏢",
+                },
+                { key: "salary_importance", label: "Salary", icon: "💰" },
+                {
+                  key: "growth_importance",
+                  label: "Career Growth",
+                  icon: "📈",
+                },
+                {
+                  key: "flexibility_importance",
+                  label: "Work Flexibility",
+                  icon: "🏠",
+                },
               ].map(({ key, label, icon }) => (
                 <div key={key}>
                   <div className="flex justify-between items-center mb-2">
@@ -212,7 +243,10 @@ export default function OnboardingPage() {
                     max="5"
                     value={formData[key as keyof typeof formData] as number}
                     onChange={(e) =>
-                      setFormData({ ...formData, [key]: parseInt(e.target.value) })
+                      setFormData({
+                        ...formData,
+                        [key]: parseInt(e.target.value),
+                      })
                     }
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                   />
@@ -244,7 +278,7 @@ export default function OnboardingPage() {
               disabled={loading}
               className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:bg-blue-400"
             >
-              {loading ? 'Saving...' : 'Start Exploring Jobs'}
+              {loading ? "Saving..." : "Start Exploring Jobs"}
             </button>
             <button
               onClick={() => setStep(1)}
