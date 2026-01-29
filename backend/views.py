@@ -103,9 +103,9 @@ def get_jobs(
     db: Session = Depends(get_db)
 ):
     """Get job listings with optional filters"""
-    
+
     query = db.query(JobListing)
-    
+
     # Apply filters
     if location:
         query = query.filter(JobListing.location.ilike(f"%{location}%"))
@@ -113,20 +113,25 @@ def get_jobs(
         query = query.filter(JobListing.industry.ilike(f"%{industry}%"))
     if min_salary:
         query = query.filter(JobListing.salary_min >= min_salary)
-    
-    # Get total count
-    total = query.count()
-    
-    # Get paginated results
-    jobs = query.offset(skip).limit(limit).all()
-    
+
+    all_jobs = query.all()
+    total = len(all_jobs)
+
     # Calculate match scores if user_id provided
     if user_id:
         user = db.query(User).filter(User.id == user_id).first()
         if user:
-            for job in jobs:
+            for job in all_jobs:
                 job.match_score = calculate_job_match_score(user, job)
-    
+
+            # Sort by match_score descending
+            all_jobs.sort(key=lambda j: j.match_score, reverse=True)
+    else:
+        # fallback ordering if no user
+        all_jobs.sort(key=lambda j: j.id)
+
+    jobs = all_jobs[skip : skip + limit]
+
     return {
         "total": total,
         "skip": skip,
