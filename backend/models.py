@@ -18,6 +18,9 @@ class User(Base):
     location = Column(String(255), nullable=False)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
+
+    # Work Location preferences
+    work_location = Column(String(255), nullable=True)
     
     # Industry/Occupation preferences
     industry = Column(String(255), nullable=True)
@@ -74,11 +77,13 @@ class JobListing(Base):
     experience_required = Column(String(255), nullable=True)
     
     # AOI Data (American Opportunity Index)
-    aoi_score = Column(Float, nullable=True)  # Overall AOI score
-    aoi_access_score = Column(Float, nullable=True)
-    aoi_wage_score = Column(Float, nullable=True)
-    aoi_mobility_score = Column(Float, nullable=True)
-    aoi_job_quality_score = Column(Float, nullable=True)
+    aoi_overall_badge = Column(String(50), nullable=True)  # e.g., Platinum, Gold, NA
+    aoi_badge_early_career = Column(String(50), nullable=True)
+    aoi_badge_growth = Column(String(50), nullable=True)
+    aoi_badge_stability = Column(String(50), nullable=True)
+    aoi_interal_promption_rate = Column(Float, nullable=True)
+    aoi_external_promotion_rate = Column(Float, nullable=True)
+    aoi_retention_rate_3yr = Column(Float, nullable=True)
     
     # Additional metadata
     remote_work = Column(Boolean, default=False)
