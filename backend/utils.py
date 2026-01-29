@@ -58,11 +58,6 @@ def calculate_job_match_score(user: User, job: JobListing) -> float:
         score += max(0, salary_score) * user.salary_importance
         total_weight += user.salary_importance
     
-    # AOI growth/mobility score
-    if job.aoi_mobility_score is not None:
-        growth_score = job.aoi_mobility_score * 20  # Assuming AOI scores are 0-5
-        score += growth_score * user.growth_importance
-        total_weight += user.growth_importance
     
     # Flexibility (remote work)
     if job.remote_work:

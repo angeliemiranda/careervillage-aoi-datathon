@@ -175,11 +175,13 @@ CREATE TABLE job_listing (
     experience_required VARCHAR(255),
     
     -- AOI Scores
-    aoi_score FLOAT,
-    aoi_access_score FLOAT,
-    aoi_wage_score FLOAT,
-    aoi_mobility_score FLOAT,
-    aoi_job_quality_score FLOAT,
+    aoi_overall_badge VARCHAR(50)
+    aoi_badge_early_career VARCHAR(50)
+    aoi_badge_growth = VARCHAR(50)
+    aoi_badge_stability = VARCHAR(50)
+    aoi_interal_promption_rate = FLOAT
+    aoi_external_promotion_rate = FLOAT
+    aoi_retention_rate_3yr = FLOAT
     
     -- Metadata
     remote_work BOOLEAN DEFAULT FALSE,
