@@ -31,7 +31,7 @@ def seed_sample_data():
     # Sample job listings
     sample_jobs = [
         JobListing(
-            nlx_id="NLX001",
+            nlx_id="NLX0000",
             title="Software Engineer",
             company="TechCorp Inc.",
             description="Build and maintain web applications using modern frameworks.",
@@ -62,7 +62,7 @@ def seed_sample_data():
             url="https://example.com/job/1",
         ),
         JobListing(
-            nlx_id="NLX002",
+            nlx_id="NLX0001",
             title="Data Analyst",
             company="3M",
             description="Analyze manufacturing and supply chain data to uncover trends and drive process improvements.",
@@ -346,7 +346,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0001",
+            nlx_id="NLX0009",
             title="Data Analyst",
             company="3M",
             description="Analyze manufacturing and supply chain data to uncover trends and drive process improvements.",
@@ -379,7 +379,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0002",
+            nlx_id="NLX0010",
             title="Quality Systems Engineer",
             company="3M",
             description="Develop and maintain quality control systems to ensure product compliance and reliability.",
@@ -417,7 +417,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0003",
+            nlx_id="NLX0011",
             title="Clinical Data Specialist",
             company="Abbott Laboratories",
             description="Manage and validate clinical datasets used in medical device research and regulatory submissions.",
@@ -450,7 +450,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0004",
+            nlx_id="NLX0012",
             title="Regulatory Affairs Manager",
             company="Abbott Laboratories",
             description="Lead regulatory strategy and submissions for new and updated medical products.",
@@ -488,7 +488,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0005",
+            nlx_id="NLX0013",
             title="Bioinformatics Analyst",
             company="AbbVie",
             description="Analyze genomic and clinical datasets to support drug discovery and development.",
@@ -521,7 +521,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0006",
+            nlx_id="NLX0014",
             title="Cloud Solutions Architect",
             company="Accenture",
             description="Design scalable cloud architectures and guide enterprise cloud transformation projects.",
@@ -554,7 +554,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0007",
+            nlx_id="NLX0015",
             title="Senior Software Engineer",
             company="Adobe",
             description="Build high-performance services powering creative cloud applications.",
@@ -587,7 +587,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0008",
+            nlx_id="NLX0016",
             title="HR Data Analyst",
             company="ADP",
             description="Deliver workforce analytics dashboards and insights for enterprise HR teams.",
@@ -620,7 +620,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0009",
+            nlx_id="NLX0017",
             title="GPU Compiler Engineer",
             company="Advanced Micro Devices",
             description="Optimize compiler pipelines for next-generation GPU architectures.",
@@ -653,7 +653,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0010",
+            nlx_id="NLX0018",
             title="Marketplace Trust & Safety Analyst",
             company="Airbnb",
             description="Investigate risk signals and improve platform safety for hosts and guests.",
@@ -686,7 +686,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0011",
+            nlx_id="NLX0019",
             title="Digital Banking Product Manager",
             company="Ally Financial",
             description="Own roadmap for mobile-first banking experiences.",
@@ -719,7 +719,7 @@ def seed_sample_data():
             extra_data={"generated": True},
         ),
         JobListing(
-            nlx_id="NLX0012",
+            nlx_id="NLX0020",
             title="Distributed Systems Engineer",
             company="Amazon",
             description="Design resilient large-scale services supporting global e-commerce traffic.",
@@ -753,7 +753,7 @@ def seed_sample_data():
         ),
 
         JobListing(
-            nlx_id="NLX201",
+            nlx_id="NLX0021",
             title="Data Analyst I",
             company="Amazon",
             description="Analyze customer and operational data to support business decision-making across retail teams.",
@@ -784,7 +784,7 @@ def seed_sample_data():
             url="https://example.com/job/201",
         ),
         JobListing(
-            nlx_id="NLX202",
+            nlx_id="NLX0022",
             title="Business Intelligence Analyst (New Grad)",
             company="Amazon",
             description="Build dashboards and recurring reports to support marketplace performance tracking.",
@@ -817,7 +817,7 @@ def seed_sample_data():
 
 
         JobListing(
-            nlx_id="NLX203",
+            nlx_id="NLX0023",
             title="Data Science Intern",
             company="Microsoft",
             description="Support applied data science projects focused on product usage and experimentation.",
@@ -848,7 +848,7 @@ def seed_sample_data():
             url="https://example.com/job/203",
         ),
         JobListing(
-            nlx_id="NLX204",
+            nlx_id="NLX0024",
             title="Junior Analytics Engineer",
             company="Microsoft",
             description="Transform raw data into analytics-ready tables used by reporting and ML teams.",
@@ -881,7 +881,7 @@ def seed_sample_data():
 
 
         JobListing(
-            nlx_id="NLX205",
+            nlx_id="NLX0059",
             title="Marketing Data Analyst",
             company="Starbucks",
             description="Analyze campaign performance and customer engagement metrics across digital channels.",
@@ -912,7 +912,7 @@ def seed_sample_data():
             url="https://example.com/job/205",
         ),
         JobListing(
-            nlx_id="NLX206",
+            nlx_id="NLX0026",
             title="Supply Chain Analytics Intern",
             company="Starbucks",
             description="Support supply chain optimization through data analysis and reporting.",
@@ -944,7 +944,7 @@ def seed_sample_data():
         ),
 
         JobListing(
-            nlx_id="NLX207",
+            nlx_id="NLX0027",
             title="Business Data Analyst",
             company="Costco",
             description="Support merchandising and pricing teams with data-driven insights.",
@@ -976,7 +976,7 @@ def seed_sample_data():
         ),
 
         JobListing(
-            nlx_id="NLX208",
+            nlx_id="NLX0028",
             title="Customer Insights Analyst",
             company="Nordstrom",
             description="Analyze customer behavior and purchasing trends to improve retail experience.",
@@ -1006,12 +1006,8 @@ def seed_sample_data():
             posted_date=datetime.utcnow() - timedelta(days=9),
             url="https://example.com/job/208",
         ),
-
-        # -----------------------
-        # BOEING (Early Career)
-        # -----------------------
         JobListing(
-            nlx_id="NLX209",
+            nlx_id="NLX0029",
             title="Operations Data Analyst",
             company="Boeing",
             description="Analyze manufacturing and operations data to improve production efficiency.",
@@ -1041,12 +1037,8 @@ def seed_sample_data():
             posted_date=datetime.utcnow() - timedelta(days=6),
             url="https://example.com/job/209",
         ),
-
-        # -----------------------
-        # SENIOR / LATE CAREER (2 roles)
-        # -----------------------
         JobListing(
-            nlx_id="NLX224",
+            nlx_id="NLX0054",
             title="Senior Data Science Manager",
             company="Amazon",
             description="Lead teams of data scientists driving machine learning solutions for large-scale consumer products.",
@@ -1077,7 +1069,7 @@ def seed_sample_data():
             url="https://example.com/job/224",
         ),
         JobListing(
-            nlx_id="NLX225",
+            nlx_id="NLX0025",
             title="Principal Data Engineering Lead",
             company="Microsoft",
             description="Define enterprise-wide data architecture and mentor senior engineering teams.",
@@ -1108,7 +1100,7 @@ def seed_sample_data():
             url="https://example.com/job/225",
         ),
         JobListing(
-        nlx_id="NLX301",
+        nlx_id="NLX0031",
         title="Backend Engineer I (Data Platforms)",
         company="Amazon",
         description="Build backend services that power internal data platforms and analytics tooling.",
@@ -1139,7 +1131,7 @@ def seed_sample_data():
         url="https://example.com/job/301",
     ),
     JobListing(
-        nlx_id="NLX302",
+        nlx_id="NLX0032",
         title="Junior Data Architect",
         company="Amazon",
         description="Support data architecture design for analytics and reporting systems across multiple teams.",
@@ -1169,12 +1161,8 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=9),
         url="https://example.com/job/302",
     ),
-
-    # -----------------------
-    # MICROSOFT
-    # -----------------------
     JobListing(
-        nlx_id="NLX303",
+        nlx_id="NLX0033",
         title="Backend Software Engineer (Analytics Services)",
         company="Microsoft",
         description="Develop scalable backend services supporting analytics, reporting, and telemetry ingestion.",
@@ -1205,7 +1193,7 @@ def seed_sample_data():
         url="https://example.com/job/303",
     ),
     JobListing(
-        nlx_id="NLX304",
+        nlx_id="NLX0034",
         title="Associate Data Platform Engineer",
         company="Microsoft",
         description="Help maintain and improve internal data platforms used by product and engineering teams.",
@@ -1235,12 +1223,8 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=6),
         url="https://example.com/job/304",
     ),
-
-    # -----------------------
-    # BOEING
-    # -----------------------
     JobListing(
-        nlx_id="NLX305",
+        nlx_id="NLX0035",
         title="Backend Engineer (Manufacturing Data Systems)",
         company="Boeing",
         description="Develop backend systems supporting manufacturing data ingestion and reporting.",
@@ -1271,7 +1255,7 @@ def seed_sample_data():
         url="https://example.com/job/305",
     ),
     JobListing(
-        nlx_id="NLX306",
+        nlx_id="NLX0036",
         title="Data Systems Architect",
         company="Boeing",
         description="Design and document data system architectures for operational and engineering analytics.",
@@ -1301,9 +1285,8 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=15),
         url="https://example.com/job/306",
     ),
-
     JobListing(
-        nlx_id="NLX307",
+        nlx_id="NLX0037",
         title="Backend Engineer (Retail Data APIs)",
         company="Starbucks",
         description="Build and maintain APIs that serve data to analytics, finance, and merchandising teams.",
@@ -1333,9 +1316,8 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=8),
         url="https://example.com/job/307",
     ),
-
     JobListing(
-        nlx_id="NLX308",
+        nlx_id="NLX0038",
         title="Data Warehouse Engineer I",
         company="Nordstrom",
         description="Develop and maintain data warehouse tables supporting merchandising and customer analytics.",
@@ -1365,9 +1347,8 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=6),
         url="https://example.com/job/308",
     ),
-
     JobListing(
-        nlx_id="NLX309",
+        nlx_id="NLX0039",
         title="Backend Developer (Enterprise Data)",
         company="Costco",
         description="Support backend applications that feed enterprise reporting and analytics platforms.",
@@ -1397,9 +1378,8 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=10),
         url="https://example.com/job/309",
     ),
-
     JobListing(
-        nlx_id="NLX310",
+        nlx_id="NLX0040",
         title="Data Infrastructure Engineer",
         company="Alaska Airlines",
         description="Maintain and improve data infrastructure supporting analytics, forecasting, and operations.",
@@ -1429,7 +1409,7 @@ def seed_sample_data():
         posted_date=datetime.utcnow() - timedelta(days=5),
         url="https://example.com/job/310",
         ),
-        ]
+    ]
 
     # Add to database
     for job in sample_jobs:
