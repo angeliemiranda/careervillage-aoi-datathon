@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { jobAPI, JobListing } from '@/lib/api';
-import { storage } from '@/lib/storage';
-import JobModal from '@/components/JobModal';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { jobAPI, JobListing } from "@/lib/api";
+import { storage } from "@/lib/storage";
+import JobModal from "@/components/JobModal";
 
 export default function ResultsPage() {
   const router = useRouter();
@@ -16,7 +16,7 @@ export default function ResultsPage() {
   useEffect(() => {
     const id = storage.getUserId();
     if (!id) {
-      router.push('/onboarding');
+      router.push("/onboarding");
       return;
     }
     setUserId(id);
@@ -28,17 +28,18 @@ export default function ResultsPage() {
       const response = await jobAPI.getAll({ user_id: userId, limit: 50 });
       setJobs(response.jobs);
     } catch (error) {
-      console.error('Error fetching jobs:', error);
+      console.error("Error fetching jobs:", error);
     } finally {
       setLoading(false);
     }
   };
 
   const formatSalary = (min?: number, max?: number) => {
-    if (!min && !max) return 'Not specified';
-    if (min && max) return `$${(min / 1000).toFixed(0)}k - $${(max / 1000).toFixed(0)}k`;
+    if (!min && !max) return "Not specified";
+    if (min && max)
+      return `$${(min / 1000).toFixed(0)}k - $${(max / 1000).toFixed(0)}k`;
     if (min) return `$${(min / 1000).toFixed(0)}k+`;
-    return 'Not specified';
+    return "Not specified";
   };
 
   return (
@@ -47,19 +48,21 @@ export default function ResultsPage() {
       <div className="bg-white shadow-sm sticky top-0 z-10">
         <div className="px-6 py-4">
           <h1 className="text-2xl font-bold text-gray-900">Job Listings</h1>
-          <p className="text-sm text-gray-600 mt-1">{jobs.length} opportunities found</p>
+          <p className="text-sm text-gray-600 mt-1">
+            {jobs.length} opportunities found
+          </p>
         </div>
-        
+
         {/* Navigation Tabs */}
         <div className="flex border-t border-gray-200">
           <button
-            onClick={() => router.push('/results')}
+            onClick={() => router.push("/results")}
             className="flex-1 py-3 text-center font-medium text-blue-600 border-b-2 border-blue-600"
           >
             All Jobs
           </button>
           <button
-            onClick={() => router.push('/explore')}
+            onClick={() => router.push("/explore")}
             className="flex-1 py-3 text-center font-medium text-gray-600 hover:text-gray-900"
           >
             Explore
@@ -76,7 +79,9 @@ export default function ResultsPage() {
         ) : jobs.length === 0 ? (
           <div className="text-center py-20 px-6">
             <p className="text-gray-600 text-lg">No jobs found</p>
-            <p className="text-gray-500 text-sm mt-2">Try adjusting your preferences</p>
+            <p className="text-gray-500 text-sm mt-2">
+              Try adjusting your preferences
+            </p>
           </div>
         ) : (
           <div className="divide-y divide-gray-200">
@@ -88,18 +93,20 @@ export default function ResultsPage() {
               >
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex-1">
-                    <h3 className="font-semibold text-lg text-gray-900">{job.title}</h3>
+                    <h3 className="font-semibold text-lg text-gray-900">
+                      {job.title}
+                    </h3>
                     <p className="text-gray-600 text-sm">{job.company}</p>
                   </div>
                   {job.match_score && (
                     <div className="ml-3 flex-shrink-0">
                       <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                        {job.match_score.toFixed(0)}% match
+                        {job.match_score.toFixed(0)}% ROE
                       </div>
                     </div>
                   )}
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2 mt-3 text-sm text-gray-600">
                   {job.location && (
                     <span className="flex items-center gap-1">
@@ -117,11 +124,13 @@ export default function ResultsPage() {
                     </span>
                   )}
                 </div>
-                
+
                 {job.aoi_score && (
                   <div className="mt-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-gray-500">Opportunity Score:</span>
+                      <span className="text-xs text-gray-500">
+                        Opportunity Score:
+                      </span>
                       <div className="flex-1 bg-gray-200 rounded-full h-1.5 max-w-[100px]">
                         <div
                           className="bg-blue-600 h-1.5 rounded-full"
