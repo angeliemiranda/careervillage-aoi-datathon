@@ -54,3 +54,6 @@ data/processed/*.json
 # Logs
 logs/
 *.log
+
+# Cursor logs
+cursor_files/
